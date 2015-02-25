@@ -1,9 +1,19 @@
 package com.homework.pos;
 
-/**
- * Created by taozhang on 2/25/15.
- */
-public class Good {
-    public Good(String barcode, int price) {
+public class Good
+{
+    private String barcode;
+    private double price;
+
+    public Good(String barcode, int price)
+    {
+        this.barcode = barcode;
+        this.price = price;
+
+    }
+
+    public double getPrice()
+    {
+        return price;
     }
 }

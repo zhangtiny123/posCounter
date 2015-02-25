@@ -1,7 +1,9 @@
 package com.homework.pos;
 
-/**
- * Created by taozhang on 2/25/15.
- */
-public class SubtotalCalculator {
+public class SubtotalCalculator
+{
+    public double calculate(Item item)
+    {
+        return item.getGood().getPrice() * item.getCount();
+    }
 }

@@ -1,10 +1,23 @@
 package com.homework.pos;
 
-/**
- * Created by taozhang on 2/25/15.
- */
-public class Item {
-    public Item(Good good, int i) {
+public class Item
+{
+    private Good good;
+    private int count;
 
+    public Item(Good good, int count)
+    {
+        this.good = good;
+        this.count = count;
+    }
+
+    public Good getGood()
+    {
+        return this.good;
+    }
+
+    public int getCount()
+    {
+        return count;
     }
 }
