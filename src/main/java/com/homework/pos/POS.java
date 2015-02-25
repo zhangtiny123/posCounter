@@ -2,8 +2,11 @@ package com.homework.pos;
 
 public class POS
 {
-    public double settle(Cart cart)
+    public Receipt settle(ShoppingCart shoppingCart)
     {
-        return 300;
+        Receipt receipt = new Receipt();
+        Item item = shoppingCart.getItems().get(0);
+        receipt.setTotalPayments(item.getSubtotal());
+        return receipt;
     }
 }
