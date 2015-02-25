@@ -21,7 +21,7 @@ public class Item
         return count;
     }
 
-    public double getSubtotal() {
+    public double getSubtotalPayments() {
         return good.getPrice() * count;
     }
 }

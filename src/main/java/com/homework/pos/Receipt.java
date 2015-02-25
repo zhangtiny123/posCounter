@@ -13,4 +13,9 @@ public class Receipt
     {
         return totalPayments;
     }
+
+    public void updateTotalPayments(double subtotalPayments)
+    {
+        totalPayments += subtotalPayments;
+    }
 }

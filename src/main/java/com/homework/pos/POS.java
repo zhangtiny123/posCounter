@@ -5,8 +5,9 @@ public class POS
     public Receipt settle(ShoppingCart shoppingCart)
     {
         Receipt receipt = new Receipt();
-        Item item = shoppingCart.getItems().get(0);
-        receipt.setTotalPayments(item.getSubtotal());
+        for (Item item : shoppingCart.getItems()) {
+            receipt.updateTotalPayments(item.getSubtotalPayments());
+        }
         return receipt;
     }
 }
