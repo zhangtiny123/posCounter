@@ -20,4 +20,9 @@ public class Item
     {
         return count;
     }
+
+    public double getSubtotal()
+    {
+        return good.getPrice() * count;
+    }
 }

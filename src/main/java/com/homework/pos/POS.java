@@ -7,7 +7,8 @@ public class POS
     public Receipt settle(Cart cart)
     {
         Receipt receipt = new Receipt();
-        receipt.setTotal(495.0);
+        Item item = cart.getItems().get(0);
+        receipt.setTotal(item.getSubtotal());
         return receipt;
     }
     //    public PosSystem(SubtotalCalculator subtotalCalculator)
