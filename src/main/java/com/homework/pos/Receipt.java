@@ -8,16 +8,13 @@ public class Receipt
 {
     private List<ReceiptItem> receiptItems;
     private double totalPayments;
+    private double originTotalPayments;
 
     public Receipt()
     {
         receiptItems = newArrayList();
         totalPayments = 0;
-    }
-
-    public void setTotalPayments(double totalPayments)
-    {
-        totalPayments = totalPayments;
+        originTotalPayments = 0;
     }
 
     public double getTotalPayments()
@@ -43,5 +40,15 @@ public class Receipt
     public void updateReceiptList(ReceiptItem receiptItem)
     {
         receiptItems.add(receiptItem);
+    }
+
+    public double getOriginTotalPayment()
+    {
+        return originTotalPayments;
+    }
+
+    public void updateOriginTotalPayment(double originSubtotalPayment)
+    {
+        originTotalPayments += originSubtotalPayment;
     }
 }

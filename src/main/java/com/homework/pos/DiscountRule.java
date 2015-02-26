@@ -2,5 +2,5 @@ package com.homework.pos;
 
 public interface DiscountRule
 {
-    public double calculateSubtotalPayments(double price, int count);
+    public DiscountTempData applyDiscount(DiscountTempData discountTempData);
 }

@@ -3,8 +3,6 @@ package com.homework.pos;
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.google.common.collect.Lists.newArrayList;
-
 public class ShoppingCart
 {
     private Map<String, OrderItem> items = new HashMap<String, OrderItem>();

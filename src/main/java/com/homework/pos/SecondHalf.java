@@ -3,8 +3,9 @@ package com.homework.pos;
 public class SecondHalf implements DiscountRule
 {
     @Override
-    public double calculateSubtotalPayments(double price, int count)
+    public DiscountTempData applyDiscount(DiscountTempData discountTempData)
     {
-        return price * count - (price/2) * (count/2);
+        double totalPayment = discountTempData.getPrice() * discountTempData.getCount() - (discountTempData.getPrice() / 2) * (discountTempData.getCount() / 2);
+        return new DiscountTempData(discountTempData.getPrice(), discountTempData.getCount(), totalPayment);
     }
 }
