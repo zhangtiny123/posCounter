@@ -1,20 +1,32 @@
 package com.homework.pos;
 
-import java.util.List;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
+import com.google.common.collect.Maps;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import static com.google.common.collect.Collections2.filter;
 import static com.google.common.collect.Lists.newArrayList;
 
 public class ShoppingCart
 {
-    private List<Item> items = newArrayList();
+    private Map<String, Item> items = new HashMap<String, Item>();
 
     public void addItem(Item item)
     {
-        items.add(item);
+        if (!items.containsKey(item.getGood().getBarcode())) {
+            items.put(item.getGood().getBarcode(), item);
+        } else {
+            items.get(item.getGood().getBarcode()).setCount(item.getCount());
+        }
     }
 
-    public List<Item> getItems()
+    public Map<String, Item> getItems()
     {
         return items;
     }
+
 }

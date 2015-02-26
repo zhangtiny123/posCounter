@@ -16,4 +16,9 @@ public class Good
     {
         return price;
     }
+
+    public String getBarcode()
+    {
+        return barcode;
+    }
 }

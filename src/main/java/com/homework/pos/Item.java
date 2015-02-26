@@ -21,7 +21,13 @@ public class Item
         return count;
     }
 
-    public double getSubtotalPayments() {
+    public double getSubtotalPayments()
+    {
         return good.getPrice() * count;
+    }
+
+    public void setCount(int count)
+    {
+        this.count += count;
     }
 }
