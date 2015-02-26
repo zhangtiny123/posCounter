@@ -15,6 +15,16 @@ public class ReceiptItem
         this.subtotalPayments = subtotalPayments;
     }
 
+    public double getPrice()
+    {
+        return price;
+    }
+
+    public int getCount()
+    {
+        return count;
+    }
+
     public String getBarcode()
     {
         return barcode;

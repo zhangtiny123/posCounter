@@ -51,4 +51,10 @@ public class Receipt
     {
         originTotalPayments += originSubtotalPayment;
     }
+
+
+    public List<ReceiptItem> getReceiptItems()
+    {
+        return receiptItems;
+    }
 }
