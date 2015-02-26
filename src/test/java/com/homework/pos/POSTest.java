@@ -20,7 +20,7 @@ public class POSTest
     public void should_return_total_payment_when_given_cart_with_only_one_good()
     {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000001", 300), 1));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000001", 300), 1));
 
         Receipt receipt = pos.settle(shoppingCart);
 
@@ -31,7 +31,7 @@ public class POSTest
     public void should_return_total_payment_when_given_cart_with_one_good_more_than_one_count()
     {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 5));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 5));
 
         Receipt receipt = pos.settle(shoppingCart);
 
@@ -42,8 +42,8 @@ public class POSTest
     public void should_return_receipt_when_given_cart_with_goods_more_than_one_type()
     {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000001", 300), 1));
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 1));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000001", 300), 1));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 1));
 
         Receipt receipt = pos.settle(shoppingCart);
 
@@ -54,8 +54,8 @@ public class POSTest
     public void should_return_receipt_when_given_cart_with_more_than_one_type_and_more_than_one_count()
     {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000001", 300), 5));
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 3));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000001", 300), 5));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 3));
 
         Receipt receipt = pos.settle(shoppingCart);
 
@@ -66,8 +66,8 @@ public class POSTest
     public void should_return_receipt_with_subtotals_when_given_cart_without_repeatedly_adding_goods()
     {
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000001", 300), 5));
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 3));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000001", 300), 5));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 3));
 
         Receipt receipt = pos.settle(shoppingCart);
 
@@ -78,9 +78,9 @@ public class POSTest
     @Test
     public void should_return_receipt_with_subtotals_with_repeatedly_adding_goods(){
         ShoppingCart shoppingCart = new ShoppingCart();
-        shoppingCart.addItem(new Item(new Good("ITEM000001", 300), 5));
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 3));
-        shoppingCart.addItem(new Item(new Good("ITEM000002", 200), 3));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000001", 300), 5));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 3));
+        shoppingCart.addItem(new OrderItem(new Good("ITEM000002", 200), 3));
 
         Receipt receipt = pos.settle(shoppingCart);
 

@@ -1,11 +1,11 @@
 package com.homework.pos;
 
-public class Item
+public class OrderItem
 {
     private Good good;
     private int count;
 
-    public Item(Good good, int count)
+    public OrderItem(Good good, int count)
     {
         this.good = good;
         this.count = count;
