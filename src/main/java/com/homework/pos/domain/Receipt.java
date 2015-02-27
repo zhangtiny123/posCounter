@@ -1,4 +1,4 @@
-package com.homework.pos;
+package com.homework.pos.domain;
 
 import java.util.List;
 
@@ -9,22 +9,34 @@ public class Receipt
     private List<ReceiptItem> receiptItems;
     private double totalPayments;
     private double originTotalPayments;
+    private double totalDifferencePrice;
 
     public Receipt()
     {
         receiptItems = newArrayList();
         totalPayments = 0;
         originTotalPayments = 0;
+        totalDifferencePrice = 0;
     }
 
-    public double getTotalPayments()
+    public void updateReceiptList(ReceiptItem receiptItem)
     {
-        return totalPayments;
+        receiptItems.add(receiptItem);
     }
 
     public void updateTotalPayments(double subtotalPayments)
     {
         totalPayments += subtotalPayments;
+    }
+
+    public void updateOriginTotalPayment(double originSubtotalPayment)
+    {
+        originTotalPayments += originSubtotalPayment;
+    }
+
+    public void updateTotalDifference()
+    {
+        totalDifferencePrice = originTotalPayments - totalPayments;
     }
 
     public double getSubtotalByBarcode(String barcode)
@@ -37,9 +49,9 @@ public class Receipt
         return 0;
     }
 
-    public void updateReceiptList(ReceiptItem receiptItem)
+    public double getTotalPayments()
     {
-        receiptItems.add(receiptItem);
+        return totalPayments;
     }
 
     public double getOriginTotalPayment()
@@ -47,14 +59,14 @@ public class Receipt
         return originTotalPayments;
     }
 
-    public void updateOriginTotalPayment(double originSubtotalPayment)
-    {
-        originTotalPayments += originSubtotalPayment;
-    }
-
 
     public List<ReceiptItem> getReceiptItems()
     {
         return receiptItems;
+    }
+
+    public double getTotalDifferencePrice()
+    {
+        return totalDifferencePrice;
     }
 }

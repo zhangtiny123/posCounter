@@ -1,4 +1,6 @@
-package com.homework.pos;
+package com.homework.pos.domain;
+
+import com.homework.pos.discount.DiscountRule;
 
 import java.util.List;
 
@@ -7,13 +9,13 @@ import static com.google.common.collect.Lists.newArrayList;
 public class OrderItem
 {
     private Good good;
-    private int count;
+    private int amount;
     private List<DiscountRule> discountRules = newArrayList();
 
-    public OrderItem(Good good, int count)
+    public OrderItem(Good good, int amount)
     {
         this.good = good;
-        this.count = count;
+        this.amount = amount;
     }
 
     public Good getGood()
@@ -21,18 +23,18 @@ public class OrderItem
         return this.good;
     }
 
-    public int getCount()
+    public int getAmount()
     {
-        return count;
+        return amount;
     }
 
     public double getSubtotalPayments()
     {
         if (discountRules.size() == 0) {
-            return good.getPrice() * count;
+            return good.getPrice() * amount;
         }
         double totalPayments = 0;
-        DiscountTempData discountTempData = new DiscountTempData(good.getPrice(), count, totalPayments);
+        DiscountTempData discountTempData = new DiscountTempData(good.getPrice(), amount, totalPayments);
         for (DiscountRule discountRule : discountRules) {
             DiscountTempData tempData = discountRule.applyDiscount(discountTempData);
             discountTempData.setPrice(tempData.getPrice());
@@ -41,9 +43,9 @@ public class OrderItem
         return discountTempData.getTotalPayments();
     }
 
-    public void setCount(int count)
+    public void plusAmount(int amount)
     {
-        this.count += count;
+        this.amount += amount;
     }
 
     public void addDiscountRule(DiscountRule discountRule)
@@ -53,6 +55,6 @@ public class OrderItem
 
     public double getOriginSubtotalPayment()
     {
-        return good.getPrice() * count;
+        return good.getPrice() * amount;
     }
 }

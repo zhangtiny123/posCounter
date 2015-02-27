@@ -1,6 +1,8 @@
-package com.homework.pos;
+package com.homework.pos.discount;
 
-public class SecondHalf implements DiscountRule
+import com.homework.pos.domain.DiscountTempData;
+
+public class SecondHalfDiscount implements DiscountRule
 {
     @Override
     public DiscountTempData applyDiscount(DiscountTempData discountTempData)

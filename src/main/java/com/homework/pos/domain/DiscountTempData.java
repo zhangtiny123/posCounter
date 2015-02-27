@@ -1,4 +1,4 @@
-package com.homework.pos;
+package com.homework.pos.domain;
 
 public class DiscountTempData
 {

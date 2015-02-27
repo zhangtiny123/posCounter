@@ -1,4 +1,6 @@
-package com.homework.pos;
+package com.homework.pos.discount;
+
+import com.homework.pos.domain.DiscountTempData;
 
 public class Discount implements DiscountRule
 {

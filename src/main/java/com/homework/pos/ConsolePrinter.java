@@ -1,5 +1,8 @@
 package com.homework.pos;
 
+import com.homework.pos.domain.Receipt;
+import com.homework.pos.domain.ReceiptItem;
+
 public class ConsolePrinter
 {
     public static final String CONCLUSION_TITLE = "总计金额\t\t\t优惠前\t优惠后\t\t优惠差价";
@@ -12,6 +15,6 @@ public class ConsolePrinter
             System.out.println(item.getBarcode() + "\t\t" + item.getCount() + "\t\t" + item.getPrice() + "\t\t" + item.getSubtotalPayments());
         }
         System.out.println(CONCLUSION_TITLE);
-        System.out.println(receipt.getTotalPayments() + "\t\t\t" + receipt.getOriginTotalPayment() + "\t" + receipt.getTotalPayments() + "\t\t" + (receipt.getOriginTotalPayment()-receipt.getTotalPayments()));
+        System.out.println(receipt.getTotalPayments() + "\t\t\t" + receipt.getOriginTotalPayment() + "\t" + receipt.getTotalPayments() + "\t\t" + (receipt.getOriginTotalPayment() - receipt.getTotalPayments()));
     }
 }

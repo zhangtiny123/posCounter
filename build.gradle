@@ -1,9 +1,14 @@
 apply plugin: 'java'
-apply plugin :'idea'
+apply plugin: 'idea'
+apply plugin: 'checkstyle'
 
 
 repositories {
 	mavenCentral()
+}
+
+buildscript {
+
 }
 
 dependencies {

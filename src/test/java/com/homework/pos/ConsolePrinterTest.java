@@ -1,17 +1,16 @@
 package com.homework.pos;
 
+import com.homework.pos.domain.Good;
+import com.homework.pos.domain.OrderItem;
+import com.homework.pos.domain.Receipt;
+import com.homework.pos.domain.ShoppingCart;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InOrder;
 
-import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.mock;
 
@@ -19,7 +18,6 @@ public class ConsolePrinterTest
 {
     private static final String ITEM1 = "ITEM000001";
     private static final String ITEM2 = "ITEM000002";
-//    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private PrintStream outContent;
 
     @Before
@@ -41,11 +39,11 @@ public class ConsolePrinterTest
 
         POS pos = new POS();
         ShoppingCart shoppingCart = getShoppingCart();
-        shoppingCart.addItem(getItem1(3));
-        shoppingCart.addItem(getItem2(5));
+        shoppingCart.add(getItem1(3));
+        shoppingCart.add(getItem2(5));
         InOrder inOrder = inOrder(outContent);
 
-        Receipt receipt = pos.settle(shoppingCart);
+        Receipt receipt = pos.checkout(shoppingCart);
         ConsolePrinter consolePrinter = new ConsolePrinter();
         consolePrinter.output(receipt);
 
