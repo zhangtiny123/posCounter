@@ -1,11 +1,11 @@
 package com.homework.pos.domain;
 
-public class Good
+public class Goods
 {
     private String barcode;
     private double price;
 
-    public Good(String barcode, int price)
+    public Goods(String barcode, int price)
     {
         this.barcode = barcode;
         this.price = price;

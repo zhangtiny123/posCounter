@@ -1,9 +1,9 @@
 package com.homework.pos;
 
-import com.homework.pos.discount.Discount;
-import com.homework.pos.discount.DiscountRule;
-import com.homework.pos.discount.SecondHalfDiscount;
-import com.homework.pos.domain.Good;
+import com.homework.pos.business.rules.Discount;
+import com.homework.pos.business.rules.DiscountRule;
+import com.homework.pos.business.rules.SecondHalfDiscount;
+import com.homework.pos.domain.Goods;
 import com.homework.pos.domain.OrderItem;
 import com.homework.pos.domain.Receipt;
 import com.homework.pos.domain.ShoppingCart;
@@ -174,7 +174,7 @@ public class POSTest
         assertThat(receipt.getTotalDifferencePrice(), is(380.0));
     }
 
-    private OrderItem getGood1WithAmount(int amount) {return new OrderItem(new Good(ITEM1, 300), amount);}
+    private OrderItem getGood1WithAmount(int amount) {return new OrderItem(new Goods(ITEM1, 300), amount);}
 
-    private OrderItem getGood2WithAmount(int amount) {return new OrderItem(new Good(ITEM2, 200), amount);}
+    private OrderItem getGood2WithAmount(int amount) {return new OrderItem(new Goods(ITEM2, 200), amount);}
 }

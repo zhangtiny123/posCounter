@@ -1,6 +1,6 @@
 package com.homework.pos.domain;
 
-import com.homework.pos.discount.DiscountRule;
+import com.homework.pos.business.rules.DiscountRule;
 
 import java.util.List;
 
@@ -8,39 +8,24 @@ import static com.google.common.collect.Lists.newArrayList;
 
 public class OrderItem
 {
-    private Good good;
+    private Goods goods;
     private int amount;
     private List<DiscountRule> discountRules = newArrayList();
 
-    public OrderItem(Good good, int amount)
+    public OrderItem(Goods goods, int amount)
     {
-        this.good = good;
+        this.goods = goods;
         this.amount = amount;
     }
 
-    public Good getGood()
+    public Goods getGoods()
     {
-        return this.good;
+        return this.goods;
     }
 
     public int getAmount()
     {
         return amount;
-    }
-
-    public double getSubtotalPayments()
-    {
-        if (discountRules.size() == 0) {
-            return good.getPrice() * amount;
-        }
-        double totalPayments = 0;
-        DiscountTempData discountTempData = new DiscountTempData(good.getPrice(), amount, totalPayments);
-        for (DiscountRule discountRule : discountRules) {
-            DiscountTempData tempData = discountRule.applyDiscount(discountTempData);
-            discountTempData.setPrice(tempData.getPrice());
-            discountTempData.setTotalPayments(tempData.getTotalPayments());
-        }
-        return discountTempData.getTotalPayments();
     }
 
     public void plusAmount(int amount)
@@ -53,8 +38,8 @@ public class OrderItem
         discountRules.add(discountRule);
     }
 
-    public double getOriginSubtotalPayment()
+    public List<DiscountRule> getDiscountRules()
     {
-        return good.getPrice() * amount;
+        return discountRules;
     }
 }

@@ -1,6 +1,6 @@
 package com.homework.pos;
 
-import com.homework.pos.domain.Good;
+import com.homework.pos.domain.Goods;
 import com.homework.pos.domain.OrderItem;
 import com.homework.pos.domain.Receipt;
 import com.homework.pos.domain.ShoppingCart;
@@ -56,7 +56,7 @@ public class ConsolePrinterTest
 
     private ShoppingCart getShoppingCart() {return new ShoppingCart();}
 
-    private OrderItem getItem1(int count) {return new OrderItem(new Good(ITEM1, 300), count);}
+    private OrderItem getItem1(int count) {return new OrderItem(new Goods(ITEM1, 300), count);}
 
-    private OrderItem getItem2(int count) {return new OrderItem(new Good(ITEM2, 200), count);}
+    private OrderItem getItem2(int count) {return new OrderItem(new Goods(ITEM2, 200), count);}
 }

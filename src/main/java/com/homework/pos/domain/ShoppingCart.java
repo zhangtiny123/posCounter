@@ -9,7 +9,7 @@ public class ShoppingCart
 
     public void add(OrderItem orderItem)
     {
-        String orderItemKey = orderItem.getGood().getBarcode();
+        String orderItemKey = orderItem.getGoods().getBarcode();
         if (!goods.containsKey(orderItemKey)) {
             goods.put(orderItemKey, orderItem);
         } else {

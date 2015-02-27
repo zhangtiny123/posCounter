@@ -1,4 +1,4 @@
-package com.homework.pos.discount;
+package com.homework.pos.business.rules;
 
 import com.homework.pos.domain.DiscountTempData;
 
