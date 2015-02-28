@@ -52,7 +52,7 @@
         <module name="ParenPad"/>
         <module name="TypecastParenPad"/>
         <module name="WhitespaceAfter">
-            <property name="tokens" value="COMMA, SEMI"/>
+            <property name="tokens" value="COMMA"/>
         </module>
         <!--<module name="WhitespaceAround">-->
         <!-- everything except { and } -->

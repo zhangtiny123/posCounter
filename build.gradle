@@ -1,24 +1,31 @@
+import com.sun.org.apache.xalan.internal.xsltc.cmdline.Compile
+
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'checkstyle'
 
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(Compile) {
+	options.encoding = 'UTF-8'
+	
+}
 
 repositories {
 	mavenCentral()
 }
 
 buildscript {
-
 }
 
 dependencies {
 	compile "com.google.guava:guava:18.0"
 
 	testCompile "junit:junit:4.+"
- 	testCompile "org.mockito:mockito-core:1.+"
+	testCompile "org.mockito:mockito-core:1.+"
 }
 
 task create << {
-    sourceSets*.java.srcDirs*.each { it.mkdirs() }
-    sourceSets*.resources.srcDirs*.each { it.mkdirs()}
+	sourceSets*.java.srcDirs*.each { it.mkdirs() }
+	sourceSets*.resources.srcDirs*.each { it.mkdirs() }
 }

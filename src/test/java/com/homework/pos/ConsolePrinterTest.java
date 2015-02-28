@@ -40,7 +40,6 @@ public class ConsolePrinterTest
         POS pos = new POS();
         ShoppingCart shoppingCart = getShoppingCart();
         shoppingCart.add(getItem1(3));
-        shoppingCart.add(getItem2(5));
         InOrder inOrder = inOrder(outContent);
 
         Receipt receipt = pos.checkout(shoppingCart);
@@ -50,7 +49,7 @@ public class ConsolePrinterTest
         inOrder.verify(outContent).println("购物明细\t\t\t数量\t\t单价\t\t\t小计");
         inOrder.verify(outContent).println("ITEM000001\t\t3\t\t300.0\t\t900.0");
         inOrder.verify(outContent).println("总计金额\t\t\t优惠前\t优惠后\t\t优惠差价");
-        inOrder.verify(outContent).println("1900.0\t\t\t1900.0\t1900.0\t\t0.0");
+        inOrder.verify(outContent).println("900.0\t\t\t900.0\t900.0\t\t0.0");
 
     }
 

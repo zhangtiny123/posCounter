@@ -1,7 +1,6 @@
 package com.homework.pos.services;
 
 import com.homework.pos.business.rules.Discount;
-import com.homework.pos.business.rules.DiscountRule;
 import com.homework.pos.business.rules.SecondHalfDiscount;
 import com.homework.pos.domain.Goods;
 import com.homework.pos.domain.OrderItem;
