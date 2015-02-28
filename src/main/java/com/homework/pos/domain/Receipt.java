@@ -1,11 +1,14 @@
 package com.homework.pos.domain;
 
+import com.homework.pos.services.SubtotalService;
+
 import java.util.List;
 
 import static com.google.common.collect.Lists.newArrayList;
 
 public class Receipt
 {
+    private final SubtotalService subtotalService = new SubtotalService();
     private List<ReceiptItem> receiptItems;
     private double totalPayments;
     private double originTotalPayments;
@@ -19,23 +22,11 @@ public class Receipt
         totalDifferencePrice = 0;
     }
 
-    public void updateReceiptList(ReceiptItem receiptItem)
+    public void updateElements(OrderItem orderItem)
     {
-        receiptItems.add(receiptItem);
-    }
-
-    public void updateTotalPayments(double subtotalPayments)
-    {
-        totalPayments += subtotalPayments;
-    }
-
-    public void updateOriginTotalPayment(double originSubtotalPayment)
-    {
-        originTotalPayments += originSubtotalPayment;
-    }
-
-    public void updateTotalDifference()
-    {
+        receiptItems.add(subtotalService.getReceiptItem(orderItem));
+        totalPayments += subtotalService.getSubtotalPayments(orderItem);
+        originTotalPayments += subtotalService.getOriginSubtotalPayment(orderItem);
         totalDifferencePrice = originTotalPayments - totalPayments;
     }
 
@@ -58,7 +49,6 @@ public class Receipt
     {
         return originTotalPayments;
     }
-
 
     public List<ReceiptItem> getReceiptItems()
     {
