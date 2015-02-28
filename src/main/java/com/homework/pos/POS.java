@@ -3,7 +3,6 @@ package com.homework.pos;
 import com.homework.pos.domain.OrderItem;
 import com.homework.pos.domain.Receipt;
 import com.homework.pos.domain.ShoppingCart;
-import com.homework.pos.services.SubtotalService;
 
 public class POS
 {
